@@ -11,6 +11,12 @@ namespace WiscoIpsum.Controllers
 {
     public class HomeController : Controller
     {
+        private readonly IIpsumGenerator _generator;
+
+        public HomeController(IIpsumGenerator generator) {
+            _generator = generator;
+        }
+
         public IActionResult Index()
         {
             return View(new IpsumViewModel());
@@ -19,7 +25,7 @@ namespace WiscoIpsum.Controllers
         [HttpPost]
         public IActionResult Index(IpsumViewModel model)
         {
-            model.IpsumText = IpsumGenerator.GenerateIpsum(model.Paragraphs);
+            model.IpsumText = _generator.GenerateIpsum(model.Paragraphs);
             return View(model);
         }
 

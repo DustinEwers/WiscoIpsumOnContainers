@@ -3,9 +3,13 @@ using System.Text;
 
 namespace WiscoIpsum.Services
 {
-    public class IpsumGenerator
+    public interface IIpsumGenerator {
+        string GenerateIpsum(int numberOfParagraphs);
+    }
+
+    public class IpsumGenerator : IIpsumGenerator
     {
-        public static string GenerateIpsum(int numberOfParagraphs) {
+        public string GenerateIpsum(int numberOfParagraphs) {
             if (numberOfParagraphs < 1) { numberOfParagraphs = 1; }
 
             var sb = new StringBuilder();
@@ -20,7 +24,7 @@ namespace WiscoIpsum.Services
             return sb.ToString();
         }
 
-        private static string GenerateParagraph()
+        private string GenerateParagraph()
         {
             var random = new Random();
             var phases = GetPhrases();
@@ -37,14 +41,14 @@ namespace WiscoIpsum.Services
             return sb.ToString();
         }
 
-        private static string[] GetPhrases() => new string[] {
+        private string[] GetPhrases() => new string[] {
             "Ope",
             "Where-Abouts",
             "Spotted Cow",
             "Brandy Old Fashioned",
             "Stop-and-go-lights",
             "Fleet Farm",
-            "Cheeshead",
+            "Cheesehead",
             "Fish Fry",
             "Bubbler",
             "Aw Geez",

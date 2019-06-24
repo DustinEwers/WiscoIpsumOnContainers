@@ -1,7 +1,4 @@
-﻿using System;
-using System.ComponentModel.DataAnnotations;
-
-namespace WiscoIpsum.Models
+﻿namespace WiscoIpsum.Models
 {
     public class IpsumViewModel
     {

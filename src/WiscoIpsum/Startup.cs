@@ -9,6 +9,7 @@ using Microsoft.AspNetCore.HttpsPolicy;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
+using WiscoIpsum.Services;
 
 namespace WiscoIpsum
 {
@@ -31,7 +32,7 @@ namespace WiscoIpsum
                 options.MinimumSameSitePolicy = SameSiteMode.None;
             });
 
-
+            services.AddTransient<IIpsumGenerator, IpsumGenerator>();
             services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_2);
         }
 
