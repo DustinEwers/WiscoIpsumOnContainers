@@ -57,7 +57,13 @@ namespace WiscoIpsum.Services
             "Uff-Da",
             "Ya Know?",
             "Believe You Me",
-            "You betcha"
+            "You betcha",
+            "Packers",
+            "Brewers",
+            "Badgers",
+            "Da Pack",
+            "Walleye",
+            "Da lake"
         };
     }
 }
